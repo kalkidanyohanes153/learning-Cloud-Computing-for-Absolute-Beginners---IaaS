@@ -1,3 +1,57 @@
+AD
+Active Directory (AD) is a directory service developed by Microsoft for Windows domain networks.It stores information about users, computers, printers, groups, and other objects in 
+a network, and manages security policies, authentication, and access control.
+Logical Structure of Active Directory
+a. Forest
+The highest level in the AD hierarchy.A forest is a collection of one or more domain trees that share:
+A common schema (data structure)
+A global catalog
+Trusts between domains
+Usually represents the entire organization.
+ Example: An enterprise called GlobalCorp may have one forest named globalcorp.com.
+b. Tree
+A collection of domains that share a contiguous namespace (e.g., hr.globalcorp.com, it.globalcorp.com).Domains in a tree are automatically trusted by each other (two-way trust).
+
+c. Domain
+A security boundary that stores objects like:Users, Computers, Groups, Organizational Units.Each domain has its own policies, authentication rules, and database (NTDS.dit).
+The domain is the most commonly managed unit.
+Example: sales.globalcorp.com is one domain.
+d. Organizational Unit (OU)
+A container within a domain used to organize objects (users, computers) logically.Policies (GPOs) can be applied to OUs.Delegation of control is possible at OU level.
+Example: You can have OU=Students, OU=Teachers, etc.
+e. Objects 🔹
+Everything stored in AD is an object.Object types: User, Group, Computer, Printer, Shared Folder, etc.Each object has a unique Distinguished Name (DN) and a Globally Unique Identifier (GUID).
+f. Schema 🧬
+The rules or blueprint that defines what objects can exist in AD and what attributes they have.
+Example: A "User" object has attributes like username, email, password.
+ 3. What is a Domain Controller (DC)?
+What is a Domain Controller (DC)?
+A Domain Controller is a server that runs AD DS (Active Directory Domain Services.DC is a Windows Server that stores and manages a copy of the Active Directory database and provides the core services for:
+User authentication
+Security policy enforcement
+Directory searches
+Replication of AD data to other DCs
+The DC is the brain of a Windows-based network — it controls who can log in, what they can access, and applies rules (GPOs) to manage behavior.
+
+It authenticates users, stores the AD database, and enforces security policies.
+Functions:
+Stores a writable copy of the AD database (NTDS.dit)
+Handles logins, password changes, and security policies
+Processes Group Policy Objects (GPOs)
+Replicates changes to other DCs
+Every domain must have at least one DC, and large environments may have many DCs for redundancy.
+4. What is a Global Catalog (GC)?
+The Global Catalog is a specialized role that can be enabled on a DC.
+Functions:
+Stores a partial replica of all objects in the entire forest (not just one domain).
+Allows forest-wide searches (e.g., "Find all users named John across all domains").
+Used during logon to verify Universal Group Membership.
+Usually, the first DC in the forest becomes a Global Catalog server.
+
+
+
+
+
 DHCP
 DHCP stands for Dynamic Host Configuration Protocol. It is a network protocol used to automatically assign IP addresses and other related parameters(Subnet mask,Default gateway and lease time).
  Install the DHCP Server Role
