@@ -1,0 +1,20 @@
+DHCP
+DHCP stands for Dynamic Host Configuration Protocol. It is a network protocol used to automatically assign IP addresses and other related parameters(Subnet mask,Default gateway and lease time).
+ Install the DHCP Server Role
+When setting up DHCP on a Windows Server, IPv4 is usually pre-configured or commonly used. Here's why IPv4 is the most commonly used, and what's going on with IPv6:
+1. IPv4 is still the dominant protocol
+Most networks, devices, and systems today still rely on IPv4.
+IPv4 addresses (like 192.168.1.1) are simpler and more familiar.
+It's still the standard in most small to medium-sized networks.
+2. IPv6 has different configuration needs
+IPv6 uses a different method called SLAAC (Stateless Address Auto Configuration) — meaning devices can configure themselves without a DHCP server.
+DHCPv6 is optional and not always needed in modern networks.
+Many routers and client systems use RA (Router Advertisement) for IPv6 configuration.
+3. Windows DHCP by default focuses on IPv4
+During setup, IPv4 is presented because it’s the standard in most deployments.
+You can manually configure IPv6 scopes, but it's not required in most cases, especially on local area networks (LANs).
+Want to Enable IPv6 DHCP?
+You can:
+Create an IPv6 scope manually in the DHCP console.
+Ensure IPv6 routing and Router Advertisement Daemon (RADVD) is configured if on Linux.
+Use DHCPv6 for stateful configuration (if SLAAC is disabled).
