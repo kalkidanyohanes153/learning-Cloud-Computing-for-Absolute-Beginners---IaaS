@@ -18,3 +18,33 @@ You can:
 Create an IPv6 scope manually in the DHCP console.
 Ensure IPv6 routing and Router Advertisement Daemon (RADVD) is configured if on Linux.
 Use DHCPv6 for stateful configuration (if SLAAC is disabled).
+DNS
+It translates domain names (like www.google.com) into IP addresses (like 142.250.190.36) that computers use to communicate.
+How DNS Works
+Your PC
+  ↓
+Local Cache
+  ↓
+DNS Resolver (8.8.8.8 or ISP(Internet Service Provider))
+  ↓
+Root Server (A-M, 13 logical servers)
+It’s the top-level of the DNS hierarchy.There are 13 logical root servers, labeled A to M (e.g., a.root-servers.net, b.root-servers.net, ...).Each logical server has many physical servers 
+spread globally for speed & redundancy.It doesn't store domain IPs like google.com, but knows where to find the TLD (.com, .org, etc.) servers.
+“Ask the .com TLD server at this address.”
+  ↓
+TLD Server (.com, .net, .org)
+“Go ask the Authoritative DNS at this address.”
+  ↓
+Authoritative Server (google.com DNS)
+The final source of truth for a domain.Owned by the domain owner (e.g., Google, Facebook).Contains DNS records, including:A record (IPv4 address), AAAA record (IPv6 address)
+MX record (mail server), CNAME (alias), NS (nameserver).
+“It’s 142.250.190.36”
+  ↓
+Returns IP(and IP is cached locally) → Your Browser → Connects
+
+
+
+
+
+
+
